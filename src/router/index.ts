@@ -1,4 +1,3 @@
-// src/router/index.ts
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../pages/home/HomePage.vue'
 import ProjectsPage from '../pages/home/ProjectsPage.vue'
@@ -15,4 +14,4 @@ const router = createRouter({
   ]
 })
 
-export default router // <--- ESTO ES LO QUE TIENE QUE ESTAR
+export default router

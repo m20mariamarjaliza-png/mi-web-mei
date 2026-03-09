@@ -1,18 +1,24 @@
+<script setup lang="ts">
+// Tu lógica aquí (si la tienes)
+</script>
+
 <template>
-  <main class="min-h-screen bg-[#111111] text-white flex flex-col items-center justify-center p-10 font-sans">
-    
-    <div class="grid grid-cols-6 gap-2 mb-8">
-      <div v-for="i in 36" :key="i" class="w-2 h-2 bg-pink-600 rounded-sm"></div>
+  <div class="min-h-screen flex flex-col justify-center p-20">
+    <div class="grid grid-cols-6 gap-2 w-16 mb-10">
+      <div v-for="n in 36" :key="n" class="w-2 h-2 bg-gray-600 rounded-full"></div>
     </div>
     
-    <h1 class="text-[120px] font-black uppercase tracking-tighter leading-none">
-      <span class="text-white">PORT</span><span class="text-pink-600">FOLIO</span>
+    <h1 class="text-[150px] font-black leading-none text-white">
+      PORT<span class="text-[#ff0080]">FOLIO</span>
     </h1>
     
-    <p class="text-2xl mt-4 mb-10 text-gray-300">BIENVENIDA/O A MI ESPACIO CREATIVO</p>
+    <p class="text-2xl mt-4 text-white">BIENVENIDA/O A MI ESPACIO CREATIVO</p>
     
-    <RouterLink to="/projects" class="border-2 border-pink-600 text-pink-600 px-8 py-3 hover:bg-pink-600 hover:text-white transition-all font-bold">
+    <router-link 
+      to="/projects" 
+      class="mt-10 border border-[#ff0080] py-4 px-8 w-64 text-center hover:bg-[#ff0080] transition-all text-white"
+    >
       VER MIS TRABAJOS
-    </RouterLink>
-  </main>
+    </router-link> 
+  </div>
 </template>
