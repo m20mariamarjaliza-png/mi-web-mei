@@ -1,42 +1,31 @@
-<script setup lang="ts">
-
-import { ref } from "vue"
-
-const name = ref("")
-const email = ref("")
-const message = ref("")
-
-function sendForm(){
-alert("Mensaje enviado")
-}
-
-</script>
-
 <template>
+  <div class="min-h-screen bg-[#111] text-white p-20 flex flex-col justify-center items-center">
+    
+    <div class="w-full max-w-lg">
+      <h1 class="text-5xl font-black mb-10 border-l-8 border-[#ff0080] pl-6">CONTACTO</h1>
+      
+      <form class="flex flex-col gap-6">
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm text-gray-400">Nombre</label>
+          <input type="text" class="bg-[#222] border-b-2 border-gray-600 p-2 focus:border-[#ff0080] outline-none transition-all">
+        </div>
 
-<section class="p-10 max-w-xl mx-auto">
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm text-gray-400">Email</label>
+          <input type="email" class="bg-[#222] border-b-2 border-gray-600 p-2 focus:border-[#ff0080] outline-none transition-all">
+        </div>
 
-<h1 class="text-3xl font-bold mb-6">
-Contacto
-</h1>
+        <div class="flex flex-col">
+          <label class="mb-2 text-sm text-gray-400">Mensaje</label>
+          <textarea rows="4" class="bg-[#222] border-b-2 border-gray-600 p-2 focus:border-[#ff0080] outline-none transition-all"></textarea>
+        </div>
 
-<form
-@submit.prevent="sendForm"
-class="flex flex-col gap-4"
->
+        <button type="submit" 
+          class="mt-4 bg-[#ff0080] hover:bg-[#d4006d] text-white font-bold py-4 px-8 transition-all duration-300">
+          ENVIAR
+        </button>
+      </form>
+    </div>
 
-<input v-model="name" placeholder="Nombre" class="border p-3">
-
-<input v-model="email" placeholder="Email" class="border p-3">
-
-<textarea v-model="message" placeholder="Mensaje" class="border p-3"></textarea>
-
-<button class="bg-orange-500 text-white p-3 rounded">
-Enviar
-</button>
-
-</form>
-
-</section>
-
+  </div>
 </template>
