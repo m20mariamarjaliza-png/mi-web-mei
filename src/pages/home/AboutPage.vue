@@ -47,6 +47,11 @@ const abrirImagenBachillerato = (indice: number) => {
   imagenAbierta.value = src;
 };
 
+const cambiarImagenBachillerato = (direccion: 1 | -1) => {
+  const total = imagenesBachillerato.length;
+  indiceBachillerato.value = (indiceBachillerato.value + direccion + total) % total;
+};
+
 const abrirImagenUpv = (indice: number) => {
   const src = imagenesUpv[indice] ?? imagenesUpv[0];
   if (!src) return;
@@ -128,6 +133,28 @@ onBeforeUnmount(() => {
             alt="Trabajos de Bachillerato"
             class="w-full h-full object-cover object-bottom"
           >
+          <button
+            class="absolute left-2 top-1/2 -translate-y-1/2 text-white/90 text-2xl px-2 hover:text-white"
+            @click.stop="cambiarImagenBachillerato(-1)"
+          >
+            ‹
+          </button>
+          <button
+            class="absolute right-2 top-1/2 -translate-y-1/2 text-white/90 text-2xl px-2 hover:text-white"
+            @click.stop="cambiarImagenBachillerato(1)"
+          >
+            ›
+          </button>
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+            <span
+              v-for="(_, i) in imagenesBachillerato"
+              :key="i"
+              :class="[
+                'w-1.5 h-1.5 rounded-full',
+                i === indiceBachillerato ? 'bg-white' : 'bg-white/50'
+              ]"
+            />
+          </div>
           <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all">
             <span class="text-white opacity-0 group-hover:opacity-100 text-[10px] font-bold">AMPLIAR</span>
           </div>
