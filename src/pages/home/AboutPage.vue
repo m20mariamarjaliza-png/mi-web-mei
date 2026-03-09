@@ -1,44 +1,40 @@
-<template>
-  <main class="min-h-screen bg-[#f9f9f9] p-10 md:p-20 text-gray-900">
-    <h1 class="text-6xl font-black uppercase mb-16 border-l-8 border-pink-600 pl-6">
-      Sobre Mí
-    </h1>
-    
-    <div class="grid md:grid-cols-2 gap-16">
-      <section>
-        <h2 class="text-3xl font-bold mb-6 uppercase tracking-wider">Perfil Profesional</h2>
-        <p class="text-lg leading-relaxed text-gray-700">
-          Soy María, una creativa multidisciplinar enfocada en la intersección entre el arte 
-          tradicional y el diseño digital. Mi formación me permite abordar proyectos desde 
-          la conceptualización manual hasta la ejecución técnica final.
-        </p>
-      </section>
+<script setup lang="ts">
+import { ref } from 'vue';
 
-      <section>
-        <h2 class="text-3xl font-bold mb-6 uppercase tracking-wider">Habilidades</h2>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-white p-6 shadow-sm border border-gray-200">
-            <h3 class="font-bold text-pink-600">Dibujo Artístico</h3>
-          </div>
-          <div class="bg-white p-6 shadow-sm border border-gray-200">
-            <h3 class="font-bold text-pink-600">Diseño Gráfico</h3>
-          </div>
-          <div class="bg-white p-6 shadow-sm border border-gray-200">
-            <h3 class="font-bold text-pink-600">Volumen</h3>
-          </div>
-          <div class="bg-white p-6 shadow-sm border border-gray-200">
-            <h3 class="font-bold text-pink-600">Tipografía</h3>
-          </div>
-        </div>
-      </section>
+// Estado para controlar la imagen abierta
+const imagenAbierta = ref<string | null>(null);
+
+const abrirImagen = (src: string) => {
+  imagenAbierta.value = src;
+};
+
+const cerrarImagen = () => {
+  imagenAbierta.value = null;
+};
+</script>
+
+<template>
+  <div class="min-h-screen bg-white text-black p-20">
+    <h2 class="text-2xl font-bold mb-10">FORMACIÓN ACADÉMICA</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <div class="border p-6 rounded-lg shadow-sm cursor-pointer hover:scale-105 transition-transform" 
+           @click="abrirImagen('/ruta/a/tu-foto1.jpg')">
+        <img src="/ruta/a/tu-foto1.jpg" class="w-full h-48 object-cover mb-4 rounded">
+        <h3 class="text-xl font-bold">Bachillerato de Artes</h3>
+      </div>
+
+      <div class="border p-6 rounded-lg shadow-sm cursor-pointer hover:scale-105 transition-transform" 
+           @click="abrirImagen('/ruta/a/tu-foto2.jpg')">
+        <img src="/ruta/a/tu-foto2.jpg" class="w-full h-48 object-cover mb-4 rounded">
+        <h3 class="text-xl font-bold">Grado en Diseño...</h3>
+      </div>
     </div>
 
-    <section class="mt-20">
-      <h2 class="text-3xl font-bold mb-6 uppercase tracking-wider">Formación Académica</h2>
-      <div class="bg-white p-8 border-l-4 border-black shadow-lg">
-        <h3 class="text-xl font-bold">Grado en Diseño y Creación Visual</h3>
-        <p class="text-gray-600">Escuela de Artes y Diseño | 2022 - 2026</p>
-      </div>
-    </section>
-  </main>
+    <div v-if="imagenAbierta" 
+         class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-10"
+         @click="cerrarImagen">
+      <img :src="imagenAbierta" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+    </div>
+  </div>
 </template>
