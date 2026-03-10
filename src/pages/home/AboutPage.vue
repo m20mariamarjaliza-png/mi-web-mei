@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
     <h1 class="text-4xl md:text-6xl font-black mb-10 md:mb-16 border-l-8 border-[#ff0080] pl-6">SOBRE MÍ</h1>
 
     <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-14 md:mb-20">
-      <div class="relative group cursor-pointer w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden" @click="abrirImagen('/perfil.jpeg')">
+      <div class="relative group cursor-pointer w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden transition-all duration-300" @click="abrirImagen('/perfil.jpeg')">
         <img
           src="/perfil.jpeg"
           alt="María"
@@ -127,7 +127,7 @@ onBeforeUnmount(() => {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
       <div class="p-4 md:p-6">
         <div
-          class="w-full h-44 md:h-48 mb-4 rounded overflow-hidden border border-gray-200 relative group cursor-pointer"
+          class="w-full h-44 md:h-48 mb-4 rounded overflow-hidden border border-gray-200 relative group cursor-pointer transition-all duration-300"
           @click="abrirImagenBachillerato(indiceBachillerato)"
         >
           <img
@@ -157,7 +157,7 @@ onBeforeUnmount(() => {
               ]"
             />
           </div>
-          <div class="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-white/20 transition-all">
+          <div class="absolute inset-0 flex items-center justify-center bg-transparent transition-all">
             <span class="text-white opacity-0 group-hover:opacity-100 text-[10px] font-bold">AMPLIAR</span>
           </div>
         </div>
@@ -179,15 +179,16 @@ onBeforeUnmount(() => {
 
       <div class="p-4 md:p-6">
         <div
-          class="w-full h-44 md:h-48 mb-4 rounded overflow-hidden border border-gray-200 relative group cursor-pointer"
+          class="w-full h-44 md:h-48 mb-4 rounded overflow-hidden border border-gray-200 relative group cursor-pointer transition-all duration-300"
           @click="abrirImagenUpv(indiceUpv)"
+
         >
           <img
             :src="imagenActualUpv"
             alt="Trabajos de UPV"
             class="w-full h-full object-cover object-bottom"
           >
-          <div class="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-white/20 transition-all">
+          <div class="absolute inset-0 flex items-center justify-center bg-transparent transition-all">
             <span class="text-white opacity-0 group-hover:opacity-100 text-[10px] font-bold">AMPLIAR</span>
           </div>
           <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">

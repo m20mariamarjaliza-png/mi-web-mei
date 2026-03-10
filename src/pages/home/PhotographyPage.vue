@@ -6,17 +6,25 @@ import foto3 from "@/assets/foto3.png";
 import foto4 from "@/assets/foto4.png";
 import foto5 from "@/assets/foto5.png";
 import foto6 from "@/assets/foto6.png";
+import foto7 from "@/assets/foto7.jpeg";
+import foto8 from "@/assets/foto8.jpeg";
+import foto9 from "@/assets/foto9.jpeg";
+import foto10 from "@/assets/foto10.jpeg";
+import foto11 from "@/assets/foto11.jpeg";
 
-const pestanaActiva = ref<"retratos" | "bodegones">("retratos");
+const pestanaActiva = ref<"retratos" | "bodegones" | "tradicional">("retratos");
 
 const retratos = [foto1, foto2, foto3];
-const bodegones = [foto4, foto5, foto6];
+const bodegones = [foto4, foto5, foto6, foto11];
+const tradicional = [foto7, foto8, foto9, foto10];
 
 const indiceRetratos = ref(0);
 const indiceBodegones = ref(0);
+const indiceTradicional = ref(0);
 
 const imagenRetrato = computed(() => retratos[indiceRetratos.value] ?? retratos[0]);
 const imagenBodegon = computed(() => bodegones[indiceBodegones.value] ?? bodegones[0]);
+const imagenTradicional = computed(() => tradicional[indiceTradicional.value] ?? tradicional[0]);
 
 const cambiarRetratos = (direccion: 1 | -1) => {
   const total = retratos.length;
@@ -28,13 +36,19 @@ const cambiarBodegones = (direccion: 1 | -1) => {
   indiceBodegones.value = (indiceBodegones.value + direccion + total) % total;
 };
 
-type Grupo = "retratos" | "bodegones";
+const cambiarTradicional = (direccion: 1 | -1) => {
+  const total = tradicional.length;
+  indiceTradicional.value = (indiceTradicional.value + direccion + total) % total;
+};
+
+type Grupo = "retratos" | "bodegones" | "tradicional";
 const modalGrupo = ref<Grupo | null>(null);
 const modalIndice = ref(0);
 
 const imagenModal = computed(() => {
   if (modalGrupo.value === "retratos") return retratos[modalIndice.value] ?? null;
   if (modalGrupo.value === "bodegones") return bodegones[modalIndice.value] ?? null;
+  if (modalGrupo.value === "tradicional") return tradicional[modalIndice.value] ?? null;
   return null;
 });
 
@@ -59,10 +73,18 @@ const cambiarModal = (direccion: 1 | -1) => {
     return;
   }
 
-  const total = bodegones.length;
+  if (modalGrupo.value === "bodegones") {
+    const total = bodegones.length;
+    const siguiente = (modalIndice.value + direccion + total) % total;
+    modalIndice.value = siguiente;
+    indiceBodegones.value = siguiente;
+    return;
+  }
+
+  const total = tradicional.length;
   const siguiente = (modalIndice.value + direccion + total) % total;
   modalIndice.value = siguiente;
-  indiceBodegones.value = siguiente;
+  indiceTradicional.value = siguiente;
 };
 </script>
 
@@ -74,6 +96,7 @@ const cambiarModal = (direccion: 1 | -1) => {
       <div class="mb-8 flex gap-3">
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'retratos' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'retratos'">Retratos</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'bodegones' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'bodegones'">Bodegones</button>
+        <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'tradicional' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'tradicional'">Tradicional</button>
       </div>
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
@@ -96,6 +119,17 @@ const cambiarModal = (direccion: 1 | -1) => {
           <p class="text-black text-center mt-3 text-sm tracking-wide">Bodegones</p>
         </div>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(1)">›</button>
+      </div>
+
+      <div v-else-if="pestanaActiva === 'tradicional'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
+        <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(-1)">‹</button>
+        <div class="bg-white p-3 pb-10 shadow-2xl">
+          <div class="overflow-hidden">
+            <img :src="imagenTradicional" alt="Tradicional" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('tradicional', indiceTradicional)">
+          </div>
+          <p class="text-black text-center mt-3 text-sm tracking-wide">Tradicional</p>
+        </div>
+        <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(1)">›</button>
       </div>
 
       <router-link to="/projects" class="mt-12 inline-block text-gray-300 underline hover:text-white transition-colors">← Volver a trabajos</router-link>

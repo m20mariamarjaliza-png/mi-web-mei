@@ -4,6 +4,8 @@ import vol2 from "@/assets/vol2.png";
 import vol3 from "@/assets/vol3.png";
 import vol4 from "@/assets/vol4.png";
 import vol5 from "@/assets/vol5.png";
+import lata from "@/assets/lata.jpeg";
+import lata2 from "@/assets/vol2.png"; // Asumiendo vol2.png como lata2
 
 const imagenes = [vol2, vol3, vol4, vol5];
 const indice = ref(0);

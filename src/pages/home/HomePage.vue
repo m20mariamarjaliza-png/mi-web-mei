@@ -1,4 +1,7 @@
 ﻿<script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 </script>
 
 <template>
@@ -14,17 +17,26 @@
     <p class="text-base sm:text-xl md:text-2xl mt-4 text-white">BIENVENIDA/O A MI ESPACIO CREATIVO</p>
 
     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 md:mt-10 w-full sm:w-auto">
-      <router-link to="/projects" class="border border-[#ff0080] py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center hover:bg-[#ff0080] transition-all text-white">
+      <div
+        @click="router.push('/projects')"
+        class="border border-[#ff0080] py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center text-white cursor-pointer transition-all duration-300 hover:bg-[#ff0080] hover:text-black"
+      >
         VER MIS TRABAJOS
-      </router-link>
+      </div>
 
-      <router-link to="/about" class="border border-white py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center hover:bg-white hover:text-black transition-all text-white">
+      <div
+        @click="router.push('/about')"
+        class="border border-white py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center text-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-black"
+      >
         SOBRE MÍ
-      </router-link>
+      </div>
 
-      <router-link to="/contact" class="border border-white py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center hover:bg-white hover:text-black transition-all text-white">
+      <div
+        @click="router.push('/contact')"
+        class="border border-white py-3 md:py-4 px-6 md:px-8 w-full sm:w-64 text-center text-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-black"
+      >
         CONTACTO
-      </router-link>
+      </div>
     </div>
   </div>
 </template>

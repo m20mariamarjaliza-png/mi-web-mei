@@ -15,10 +15,19 @@ import dib12 from "@/assets/dib12.jpeg";
 import dib13 from "@/assets/dib13.jpeg";
 import dib14 from "@/assets/dib14.jpeg";
 import dib15 from "@/assets/dib15.jpeg";
+import dib27 from "@/assets/dib27.jpeg";
+import dib28 from "@/assets/dib28.jpeg";
+import dib29 from "@/assets/dib29.jpeg";
+import dib30 from "@/assets/dib30.jpeg";
+import dib32 from "@/assets/dib32.jpeg";
+import dib36 from "@/assets/dib36.jpeg";
+import dib42 from "@/assets/dib42.jpeg";
+import dib44 from "@/assets/dib44.jpeg";
+import dib47 from "@/assets/dib47.jpeg";
 
 const pestanaActiva = ref<"retratos" | "anatomico">("retratos");
-const retratos = [dib4, dib5, dib12, dib13];
-const anatomico = [dib1, dib2, dib3, dib6, dib7, dib8, dib9, dib10, dib11, dib14, dib15];
+const retratos = [dib4, dib5, dib12, dib13, dib28, dib29, dib30, dib32, dib36, dib42];
+const anatomico = [dib1, dib2, dib3, dib6, dib7, dib8, dib9, dib10, dib11, dib14, dib15, dib27, dib44, dib47];
 
 const indiceRetrato = ref(0);
 const indiceAnatomico = ref(0);
