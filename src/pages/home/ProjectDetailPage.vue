@@ -6,18 +6,22 @@ import dib21 from "@/assets/dib21.jpeg";
 import dib40 from "@/assets/dib40.jpeg";
 import dib41 from "@/assets/dib41.jpeg";
 import dib39 from "@/assets/dib39.jpeg";
-import dib17 from "@/assets/dib17.jpeg";
+import dib51 from "@/assets/dib51.jpeg";
 import dib55 from "@/assets/dib55.jpeg";
+import dib56 from "@/assets/dib56.jpeg";
 import dib33 from "@/assets/dib33.jpeg";
 import dib34 from "@/assets/dib34.jpeg";
 import dib35 from "@/assets/dib35.jpeg";
 import dib49 from "@/assets/dib49.jpeg";
 import dib45 from "@/assets/dib45.jpeg";
+import dib50 from "@/assets/dib50.jpeg";
 import dib25 from "@/assets/dib25.jpeg";
 import dib43 from "@/assets/dib43.jpeg";
 import dib38 from "@/assets/dib38.jpeg";
 import dib31 from "@/assets/dib31.jpeg";
 import dib37 from "@/assets/dib37.jpeg";
+import tinta1 from "@/assets/tinta1.jpeg";
+import tinta3 from "@/assets/tinta3.jpeg";
 import PolaroidFrame from "@/components/PolaroidFrame.vue";
 
 const route = useRoute();
@@ -42,10 +46,10 @@ const descripcionLapices =
 const descripcionTintas =
   "Exploración del lenguaje de la tinta china, donde la síntesis y la jerarquía de la línea definen la narrativa visual. Este proyecto se centra en el control del trazo y el uso estratégico del claroscuro para crear volumen y profundidad sin necesidad de color. El entintado se aborda como una disciplina de precisión, buscando el equilibrio entre la fuerza de la mancha negra y la sutileza de la trama, permitiendo que la composición hable por sí sola.";
 
-const acuarelas = [dib21, dib40, dib41, dib39, dib17, dib55];
+const acuarelas = [dib21, dib40, dib41, dib39, dib51, dib55, dib56];
 const oleo = [dib33, dib34, dib35];
-const lapices = [dib49, dib45, dib25, dib43, dib38];
-const tintas = [dib31, dib37];
+const lapices = [dib49, dib45, dib50, dib25, dib43, dib38];
+const tintas = [dib31, dib37, tinta1, tinta3];
 
 const indiceAcuarelas = ref(0);
 const indiceOleo = ref(0);

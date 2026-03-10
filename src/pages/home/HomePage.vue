@@ -1,13 +1,19 @@
 ﻿<script setup lang="ts">
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
+
+const dotCols = 22;
+const dotCount = 88;
 </script>
 
 <template>
   <div class="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 py-10">
-    <div class="grid grid-cols-16 gap-2 w-[clamp(14rem,34vw,26rem)] mb-8 md:mb-10">
-      <div v-for="n in 128" :key="n" class="w-2 h-2 bg-[#ff0080]/60 rounded-full"></div>
+    <div class="grid gap-[2px] place-items-center w-fit max-w-full mt-4 mb-3 md:mb-4" :style="{ gridTemplateColumns: `repeat(${dotCols}, min-content)` }">
+      <div
+        v-for="n in dotCount"
+        :key="n"
+        class="w-4 h-4 rounded-full bg-[#ff0080]/55 transition-all duration-200 cursor-pointer hover:bg-[#ff0080] hover:scale-110 hover:shadow-[0_0_0_5px_rgba(255,0,128,0.22)]"
+      />
     </div>
 
     <h1 class="text-[56px] sm:text-[84px] md:text-[120px] lg:text-[150px] font-black leading-none text-white break-words">

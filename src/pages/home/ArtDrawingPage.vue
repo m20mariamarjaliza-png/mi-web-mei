@@ -25,6 +25,8 @@ import dib36 from "@/assets/dib36.jpeg";
 import dib42 from "@/assets/dib42.jpeg";
 import dib44 from "@/assets/dib44.jpeg";
 import dib47 from "@/assets/dib47.jpeg";
+import dib53 from "@/assets/dib53.jpeg";
+import dib54 from "@/assets/dib54.jpeg";
 
 const pestanaActiva = ref<"retratos" | "anatomico">("retratos");
 
@@ -35,7 +37,7 @@ const descripcionAnatomico =
   "Exploración técnica de la figura humana, documentando el proceso creativo desde la esquematización inicial hasta el acabado realista. El proyecto destaca la importancia del boceto como herramienta de comprensión de la masa y el gesto, evolucionando hacia un estudio preciso de la forma que permite entender el cuerpo como un sistema de volúmenes interconectados.";
 
 const retratos = [dib4, dib5, dib12, dib13, dib28, dib29, dib30, dib32, dib36, dib42];
-const anatomico = [dib1, dib2, dib3, dib6, dib7, dib8, dib9, dib10, dib11, dib14, dib15, dib27, dib44, dib47];
+const anatomico = [dib1, dib2, dib3, dib6, dib7, dib8, dib9, dib10, dib11, dib14, dib15, dib27, dib44, dib47, dib53, dib54];
 
 const indiceRetrato = ref(0);
 const indiceAnatomico = ref(0);
