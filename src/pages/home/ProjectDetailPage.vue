@@ -7,6 +7,7 @@ import dib40 from "@/assets/dib40.jpeg";
 import dib41 from "@/assets/dib41.jpeg";
 import dib39 from "@/assets/dib39.jpeg";
 import dib17 from "@/assets/dib17.jpeg";
+import dib55 from "@/assets/dib55.jpeg";
 import dib33 from "@/assets/dib33.jpeg";
 import dib34 from "@/assets/dib34.jpeg";
 import dib35 from "@/assets/dib35.jpeg";
@@ -28,7 +29,20 @@ const project = computed(() => {
 const isTecnicasPintura = computed(() => route.params.id === "4");
 
 const pestanaActiva = ref<"acuarelas" | "oleo" | "lapices" | "tintas">("acuarelas");
-const acuarelas = [dib21, dib40, dib41, dib39, dib17];
+
+const descripcionAcuarelas =
+  "Exploración técnica y expresiva a través de la acuarela. Este proyecto se centra en la versatilidad del medio para capturar luces, sombras y texturas orgánicas. A través de una paleta cuidadosamente seleccionada, busco explorar la capacidad de la mancha y la transparencia para dotar a cada obra de una profundidad emocional propia, alejándome de la rigidez para abrazar el movimiento natural del pigmento sobre el papel.";
+
+const descripcionOleo =
+  "Serie de obras desarrolladas al óleo donde la técnica se pone al servicio de la textura. El proyecto explora la fisicidad de la pintura, trabajando las capas y las pinceladas con un relieve que busca dotar a la imagen de una presencia tridimensional.";
+
+const descripcionLapices =
+  "Serie de ilustraciones realizadas mediante técnicas tradicionales de dibujo. El enfoque se centra en la observación minuciosa de la realidad, buscando capturar el detalle, el grano y la luz de cada objeto. Ya sea a través del juego de valores del grafito o la riqueza de los pigmentos en los lápices de color.";
+
+const descripcionTintas =
+  "Exploración del lenguaje de la tinta china, donde la síntesis y la jerarquía de la línea definen la narrativa visual. Este proyecto se centra en el control del trazo y el uso estratégico del claroscuro para crear volumen y profundidad sin necesidad de color. El entintado se aborda como una disciplina de precisión, buscando el equilibrio entre la fuerza de la mancha negra y la sutileza de la trama, permitiendo que la composición hable por sí sola.";
+
+const acuarelas = [dib21, dib40, dib41, dib39, dib17, dib55];
 const oleo = [dib33, dib34, dib35];
 const lapices = [dib49, dib45, dib25, dib43, dib38];
 const tintas = [dib31, dib37];
@@ -159,7 +173,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'acuarelas'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAcuarelas(-1)">‹</button>
-        <PolaroidFrame alt="Acuarelas" caption="Acuarelas" @click="abrirModal('acuarelas', indiceAcuarelas)">
+        <PolaroidFrame alt="Acuarelas" caption="Acuarelas" :description="descripcionAcuarelas" @click="abrirModal('acuarelas', indiceAcuarelas)">
           <img :src="acuarelasActual" alt="Acuarelas" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAcuarelas(1)">›</button>
@@ -167,7 +181,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'oleo'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarOleo(-1)">‹</button>
-        <PolaroidFrame alt="Óleo" caption="Óleo" @click="abrirModal('oleo', indiceOleo)">
+        <PolaroidFrame alt="Óleo" caption="Óleo" :description="descripcionOleo" @click="abrirModal('oleo', indiceOleo)">
           <img :src="oleoActual" alt="Óleo" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarOleo(1)">›</button>
@@ -175,7 +189,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'lapices'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarLapices(-1)">‹</button>
-        <PolaroidFrame alt="Lápices de colores y grafito" caption="Lápices de colores y grafito" @click="abrirModal('lapices', indiceLapices)">
+        <PolaroidFrame alt="Lápices de colores y grafito" caption="Lápices de colores y grafito" :description="descripcionLapices" @click="abrirModal('lapices', indiceLapices)">
           <img :src="lapicesActual" alt="Lápices de colores y grafito" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarLapices(1)">›</button>
@@ -183,7 +197,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'tintas'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTintas(-1)">‹</button>
-        <PolaroidFrame alt="Tintas" caption="Tintas" @click="abrirModal('tintas', indiceTintas)">
+        <PolaroidFrame alt="Tintas" caption="Tintas" :description="descripcionTintas" @click="abrirModal('tintas', indiceTintas)">
           <img :src="tintasActual" alt="Tintas" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTintas(1)">›</button>
@@ -193,10 +207,12 @@ const cambiarModal = (direccion: 1 | -1) => {
         ← Volver al listado
       </router-link>
 
-      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
-        <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
-        <img :src="imagenModal ?? ''" alt="Imagen ampliada" class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl" @click.stop>
-        <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
+      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer" @click="cerrarModal">
+        <button class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
+        <div class="min-h-full flex items-center justify-center">
+          <img :src="imagenModal ?? ''" alt="Imagen ampliada" class="w-[min(92vw,900px)] max-h-[74vh] h-auto object-contain rounded-lg shadow-2xl" @click.stop>
+        </div>
+        <button class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
       </div>
     </div>
   </div>

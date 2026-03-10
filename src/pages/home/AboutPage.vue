@@ -103,8 +103,18 @@ onBeforeUnmount(() => {
   <div class="min-h-screen bg-[#111] text-white px-4 sm:px-6 md:px-12 lg:px-20 py-10">
     <h1 class="text-4xl md:text-6xl font-black mb-10 md:mb-16 border-l-8 border-[#ff0080] pl-6">SOBRE MÍ</h1>
 
-    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-14 md:mb-20">
-      <div class="relative group cursor-pointer w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden transition-all duration-300" @click="abrirImagen('/perfil.jpeg')">
+    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 mb-14 md:mb-20">
+      <div class="w-full max-w-2xl md:pr-6">
+        <h2 class="text-xl md:text-2xl font-bold mb-4 uppercase tracking-tighter text-[#ff0080]">Perfil Profesional</h2>
+        <p class="text-base md:text-lg text-white leading-relaxed">
+          Me llamo María Marjaliza. Mi trabajo conecta la sensibilidad del dibujo y la pintura tradicional con el potencial del entorno digital. Como diseñadora, mi proceso creativo nace en el papel, ya que abordo todo el terreno del arte tradicional, para luego cobrar vida a través de la maquetación y la ilustración digital. Adémas mi punto fuerte es el diseño gráfico e ilustración.
+        </p>
+        <p class="text-base md:text-lg text-white leading-relaxed mt-4">
+          Utilizo el paquete Adobe y Blender para dar forma a mis conceptos, integrando además el desarrollo web y la programación creativa con Processing para explorar nuevas formas de expresión. Mi perfil se completa con una visión integral de la fotografía y el mundo audiovisual. Pero, más allá de las herramientas, lo que define mi trabajo es la curiosidad: aprendo y evoluciono cada día, buscando siempre mejorar mis procesos para abordar cada proyecto multidisciplinar con una estética cuidada y una ejecución técnica más precisa.
+        </p>
+      </div>
+
+      <div class="relative group cursor-pointer w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden transition-all duration-300 shrink-0 md:translate-y-2" @click="abrirImagen('/perfil.jpeg')">
         <img
           src="/perfil.jpeg"
           alt="María"
@@ -113,13 +123,6 @@ onBeforeUnmount(() => {
         <div class="absolute inset-0 flex items-center justify-center rounded-full bg-transparent group-hover:bg-white/20 transition-all">
           <span class="text-white opacity-0 group-hover:opacity-100 text-[10px] font-bold">AMPLIAR</span>
         </div>
-      </div>
-
-      <div class="w-full max-w-2xl">
-        <h2 class="text-xl md:text-2xl font-bold mb-4 uppercase tracking-tighter text-[#ff0080]">Perfil Profesional</h2>
-        <p class="text-base md:text-lg text-white leading-relaxed">
-          Me llamo María Marjaliza. Con una base forjada en el trazo tradicional, mi trabajo conecta la sensibilidad del dibujo y la pintura con el potencial del entorno digital. Especializada en diseño gráfico, utilizo el paquete Adobe y Blender para dar forma a conceptos que nacen desde el papel. Mi perfil se completa con una visión integral de la fotografía y el mundo audiovisual, permitiéndome abordar proyectos multidisciplinares con una estética cuidada y una ejecución técnica precisa.
-        </p>
       </div>
     </div>
 
@@ -221,37 +224,27 @@ onBeforeUnmount(() => {
 
     <div
       v-if="imagenAbierta"
-      class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer"
+      class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer"
       @click="cerrarImagen"
     >
       <button
         v-if="modalGaleria !== null"
-        class="absolute left-2 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white"
+        class="fixed left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white"
         @click.stop="cambiarImagenModal(-1)"
       >
         ‹
       </button>
-      <div
-        v-if="modalGaleria !== null"
-        class="w-[min(92vw,900px)] h-[min(78vh,620px)] rounded-lg overflow-hidden shadow-2xl"
-        @click.stop
-      >
-        <img :src="imagenModal ?? ''" class="w-full h-full object-cover object-bottom">
+      <div class="min-h-full flex items-center justify-center">
+        <img :src="imagenModal ?? ''" class="w-[min(92vw,900px)] h-auto rounded-lg shadow-2xl" @click.stop>
       </div>
-      <img
-        v-else
-        :src="imagenModal ?? ''"
-        class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
-        @click.stop
-      >
       <button
         v-if="modalGaleria !== null"
-        class="absolute right-2 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white"
+        class="fixed right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white"
         @click.stop="cambiarImagenModal(1)"
       >
         ›
       </button>
-      <p class="absolute bottom-8 text-white/50 text-xs tracking-[0.2em] uppercase">Haz clic para cerrar</p>
+      <p class="fixed bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.2em] uppercase">Haz clic para cerrar</p>
     </div>
 
     <router-link to="/" class="mt-12 md:mt-16 block text-gray-400 underline hover:text-white">

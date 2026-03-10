@@ -6,8 +6,8 @@ const router = useRouter()
 
 <template>
   <div class="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-20 py-10">
-    <div class="grid grid-cols-6 gap-2 w-16 mb-8 md:mb-10">
-      <div v-for="n in 36" :key="n" class="w-2 h-2 bg-gray-600 rounded-full"></div>
+    <div class="grid grid-cols-16 gap-2 w-[clamp(14rem,34vw,26rem)] mb-8 md:mb-10">
+      <div v-for="n in 128" :key="n" class="w-2 h-2 bg-[#ff0080]/60 rounded-full"></div>
     </div>
 
     <h1 class="text-[56px] sm:text-[84px] md:text-[120px] lg:text-[150px] font-black leading-none text-white break-words">

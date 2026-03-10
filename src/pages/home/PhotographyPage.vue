@@ -15,6 +15,15 @@ import foto11 from "@/assets/foto11.jpeg";
 
 const pestanaActiva = ref<"retratos" | "bodegones" | "tradicional">("retratos");
 
+const descripcionBodegones =
+  "Serie fotográfica que explora la naturaleza efímera del tiempo a través de la técnica del bodegón. Mediante la composición de objetos cotidianos y orgánicos, la obra busca capturar la transición entre la vida y el olvido. La iluminación, cuidadosamente trabajada para evocar una estética pictórica, invita al espectador a una pausa reflexiva sobre la transformación constante de nuestro entorno";
+
+const descripcionRetratos =
+  "Proyecto de fotografía editorial que rinde homenaje a la cultura visual de los años 80. A través de una estética recargada, el uso de paletas de color vibrantes y un estilismo icónico de la época, esta serie busca capturar la esencia audaz y rebelde de aquel estilo.";
+
+const descripcionTradicional =
+  "Serie fotográfica inspirada en la mirada crítica y humanista de Ramón Masats. Este proyecto rinde homenaje a su estilo neorrealista, capturando escenas de la tradición española con una honestidad que trasciende la mera documentación. La composición busca la espontaneidad y la fuerza narrativa de Masats, revelando la esencia de la cultura a través de contrastes sutiles y momentos cotidianos que invitan a la reflexión";
+
 const retratos = [foto2, foto3, foto1];
 const bodegones = [foto4, foto5, foto6, foto11];
 const tradicional = [foto7, foto8, foto9, foto10];
@@ -102,7 +111,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(-1)">‹</button>
-<PolaroidFrame alt="Retrato" @click="abrirModal('retratos', indiceRetratos)">
+<PolaroidFrame alt="Retrato" label="Retratos" :description="descripcionRetratos" @click="abrirModal('retratos', indiceRetratos)">
           <img :src="imagenRetrato" alt="Retrato" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(1)">›</button>
@@ -110,7 +119,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'bodegones'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(-1)">‹</button>
-<PolaroidFrame alt="Bodegón" @click="abrirModal('bodegones', indiceBodegones)">
+<PolaroidFrame alt="Bodegón" label="Bodegones" :description="descripcionBodegones" @click="abrirModal('bodegones', indiceBodegones)">
           <img :src="imagenBodegon" alt="Bodegón" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(1)">›</button>
@@ -118,7 +127,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'tradicional'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(-1)">‹</button>
-<PolaroidFrame alt="Tradicional" @click="abrirModal('tradicional', indiceTradicional)">
+<PolaroidFrame alt="Tradicional" label="Tradicional" :description="descripcionTradicional" @click="abrirModal('tradicional', indiceTradicional)">
           <img :src="imagenTradicional" alt="Tradicional" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(1)">›</button>
@@ -126,10 +135,12 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <router-link to="/projects" class="mt-12 inline-block text-gray-300 underline hover:text-white transition-colors">← Volver a trabajos</router-link>
 
-      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
-        <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
-        <img :src="imagenModal ?? ''" alt="Foto ampliada" class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl" @click.stop>
-        <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
+      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer" @click="cerrarModal">
+        <button class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
+        <div class="min-h-full flex items-center justify-center">
+          <img :src="imagenModal ?? ''" alt="Foto ampliada" class="w-[min(92vw,900px)] max-h-[74vh] h-auto object-contain rounded-lg shadow-2xl" @click.stop>
+        </div>
+        <button class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
       </div>
     </div>
   </div>

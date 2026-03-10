@@ -27,6 +27,13 @@ import dib44 from "@/assets/dib44.jpeg";
 import dib47 from "@/assets/dib47.jpeg";
 
 const pestanaActiva = ref<"retratos" | "anatomico">("retratos");
+
+const descripcionRetratos =
+  "Proyecto centrado en el retrato, donde el reto principal fue la adaptación técnica a diferentes soportes y medios. Esta colección pone de manifiesto mi capacidad para seleccionar y aplicar la técnica más efectiva según el tono, la intención y el mensaje de cada personaje. Una muestra de versatilidad técnica que abarca desde el realismo detallista hasta el trazo gestual, manteniendo siempre la integridad y el carácter en la representación de la figura humana.";
+
+const descripcionAnatomico =
+  "Exploración técnica de la figura humana, documentando el proceso creativo desde la esquematización inicial hasta el acabado realista. El proyecto destaca la importancia del boceto como herramienta de comprensión de la masa y el gesto, evolucionando hacia un estudio preciso de la forma que permite entender el cuerpo como un sistema de volúmenes interconectados.";
+
 const retratos = [dib4, dib5, dib12, dib13, dib28, dib29, dib30, dib32, dib36, dib42];
 const anatomico = [dib1, dib2, dib3, dib6, dib7, dib8, dib9, dib10, dib11, dib14, dib15, dib27, dib44, dib47];
 
@@ -96,7 +103,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(-1)">‹</button>
-        <PolaroidFrame alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetrato)">
+        <PolaroidFrame alt="Retrato" caption="Retratos" :description="descripcionRetratos" @click="abrirModal('retratos', indiceRetrato)">
           <img :src="retratoActual" alt="Retrato" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(1)">›</button>
@@ -104,7 +111,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-else-if="pestanaActiva === 'anatomico'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(-1)">‹</button>
-        <PolaroidFrame alt="Dibujo anatómico" caption="Dibujo Anatómico" @click="abrirModal('anatomico', indiceAnatomico)">
+        <PolaroidFrame alt="Dibujo anatómico" caption="Dibujo Anatómico" :description="descripcionAnatomico" @click="abrirModal('anatomico', indiceAnatomico)">
           <img :src="anatomicoActual" alt="Dibujo anatómico" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(1)">›</button>
@@ -112,12 +119,13 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <router-link to="/projects" class="mt-12 inline-block text-gray-300 underline hover:text-white transition-colors">← Volver a trabajos</router-link>
 
-      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
-        <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
-        <img :src="imagenModal ?? ''" alt="Dibujo ampliado" class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl" @click.stop>
-        <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
+      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer" @click="cerrarModal">
+        <button class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
+        <div class="min-h-full flex items-center justify-center">
+          <img :src="imagenModal ?? ''" alt="Dibujo ampliado" class="w-[min(92vw,900px)] max-h-[74vh] h-auto object-contain rounded-lg shadow-2xl" @click.stop>
+        </div>
+        <button class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
       </div>
     </div>
   </div>
 </template>
-

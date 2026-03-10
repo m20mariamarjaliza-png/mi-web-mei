@@ -16,11 +16,6 @@ import cartelDescartado1 from "@/assets/cartel descartado 1.jpg";
 import cartelDescartado2 from "@/assets/cartel descartado 2.jpg";
 import cartelSeleccionado from "@/assets/cartel seleccionado.jpg";
 import shr1 from "@/assets/shr1.png";
-import sh2 from "@/assets/sh2.png";
-import sh3 from "@/assets/sh3.png";
-import sh4 from "@/assets/sh4.png";
-import sh5 from "@/assets/sh5.png";
-import sh6 from "@/assets/sh6.png";
 import ft2 from "@/assets/ft2.jpeg";
 import ft3 from "@/assets/ft3.jpeg";
 import miloa1 from "@/assets/miloa1.png";
@@ -28,8 +23,20 @@ import miloa2 from "@/assets/miloa2.png";
 
 const pestanaActiva = ref<"carpeta1" | "carpeta2" | "carpeta3" | "carteles">("carpeta1");
 
+const descripcionMiloa =
+  "Desarrollo integral de identidad visual y packaging para una línea de tabletas de chocolate artesanal. El proyecto nace de la necesidad de trasladar la experiencia sensorial del producto al empaquetado, utilizando una combinación de tipografías orgánicas y materiales sostenibles que refuerzan el carácter premium y ético de la marca. Además la base fueron los cuentos tradicionales.";
+
+const descripcionShareIt =
+  "Diseño y prototipado completo de un juego de mesa desde cero. Este proyecto técnico requirió la creación de un sistema de identidad visual aplicado a múltiples soportes: tableros modulares, barajas de cartas personalizadas y elementos tridimensionales de packaging. Un ejercicio de diseño funcional que pone a prueba la capacidad de equilibrar estética, legibilidad y materiales de producción.";
+
+const descripcionConecta =
+  "Desarrollo de la identidad integral para una campaña intergeneracional diseñada para cerrar la brecha entre jóvenes y mayores. El proyecto abarcó desde el concepto creativo y el naming hasta la creación de un sistema visual coherente aplicado a soportes digitales y físicos. La propuesta gráfica busca romper estereotipos a través de un lenguaje visual cercano y de los sentimientos, logrando un impacto positivo en la comunidad y fomentando la conexión real entre ambos grupos";
+
+const descripcionCarteles =
+  "Serie de piezas gráficas diseñadas para diversos soportes y objetivos de comunicación. Este proyecto se centró en la exploración de la jerarquía visual, el uso estratégico de la tipografía y la síntesis de conceptos complejos. Cada cartel fue desarrollado con Adobe Creative Cloud, adaptando el lenguaje visual a las necesidades específicas de cada cliente o campaña, buscando un equilibrio entre impacto estético y legibilidad";
+
 const carpeta1 = [diseno1, diseno2, diseno3, miloa1, miloa2];
-const carpeta2 = [shr1, sh2, sh3, sh4, sh5, sh6, ft2, ft3];
+const carpeta2 = [shr1, ft2, ft3];
 const carpeta3 = [trans1, trans2, trans3];
 const carteles = [cartelcrefad, cartelDescartado1, cartelDescartado2, cartelSeleccionado];
 
@@ -135,7 +142,7 @@ const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 
       <div v-if="pestanaActiva === 'carpeta1'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(-1)">‹</button>
-<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta1', indiceCarpeta1)">
+<PolaroidFrame alt="Diseño gráfico" label="Miloa" :description="descripcionMiloa" @click="abrirModal('carpeta1', indiceCarpeta1)">
           <img :src="imagenCarpeta1" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(1)">›</button>
@@ -143,7 +150,7 @@ const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 
       <div v-else-if="pestanaActiva === 'carpeta2'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(-1)">‹</button>
-<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta2', indiceCarpeta2)">
+<PolaroidFrame alt="Diseño gráfico" label="SHARE IT!" :description="descripcionShareIt" @click="abrirModal('carpeta2', indiceCarpeta2)">
           <img :src="imagenCarpeta2" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(1)">›</button>
@@ -151,7 +158,7 @@ const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 
       <div v-else-if="pestanaActiva === 'carpeta3'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(-1)">‹</button>
-<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta3', indiceCarpeta3)">
+<PolaroidFrame alt="Diseño gráfico" label="CONECTA" :description="descripcionConecta" @click="abrirModal('carpeta3', indiceCarpeta3)">
           <img :src="imagenCarpeta3" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(1)">›</button>
@@ -159,7 +166,7 @@ const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 
       <div v-else-if="pestanaActiva === 'carteles'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(-1)">‹</button>
-<PolaroidFrame alt="Carteles" @click="abrirModal('carteles', indiceCarteles)">
+<PolaroidFrame alt="Carteles" label="Carteles" :description="descripcionCarteles" @click="abrirModal('carteles', indiceCarteles)">
           <img :src="imagenCarteles" alt="Carteles" class="max-w-full max-h-full object-contain">
         </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(1)">›</button>
@@ -167,12 +174,13 @@ const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 
       <router-link to="/projects" class="mt-12 inline-block text-gray-300 underline hover:text-white transition-colors">← Volver a trabajos</router-link>
 
-<div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
-        <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
-        <img :src="imagenModal ?? ''" alt="Diseño ampliado" :class="esShareIt ? 'h-[70vh] w-auto object-contain' : 'max-w-full max-h-[82vh] object-contain'" class="rounded-lg shadow-2xl" @click.stop>
-        <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
+<div v-if="modalGrupo" class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer" @click="cerrarModal">
+        <button class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
+        <div class="min-h-full flex items-center justify-center">
+          <img :src="imagenModal ?? ''" alt="Diseño ampliado" class="w-[min(92vw,900px)] max-h-[74vh] h-auto object-contain rounded-lg shadow-2xl" @click.stop>
+        </div>
+        <button class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
       </div>
     </div>
   </div>
 </template>
-
