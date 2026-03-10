@@ -2,9 +2,12 @@
 import { projects } from "@/data/projects";
 
 const projectLink = (id: string) => {
+  if (id === "1") return "/art-drawing";
   if (id === "2") return "/graphic-design";
+  if (id === "3") return "/volume";
   if (id === "5") return "/typography";
   if (id === "6") return "/photography";
+  if (id === "7") return "/illustration";
   return `/project/${id}`;
 };
 </script>
