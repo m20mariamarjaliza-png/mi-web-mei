@@ -1,12 +1,9 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import diseno1 from "@/assets/diseño1.png";
 import diseno2 from "@/assets/diseño2.png";
 import diseno3 from "@/assets/diseño3.png";
-import diseno4 from "@/assets/diseño4.png";
-import diseno5 from "@/assets/diseño5.png";
-import diseno6 from "@/assets/diseño6.png";
-import diseno7 from "@/assets/diseño7.png";
 import trans1 from "@/assets/trans1.png";
 import trans2 from "@/assets/trans2.png";
 import trans3 from "@/assets/trans3.png";
@@ -130,45 +127,25 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'carpeta1'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenCarpeta1" alt="Diseño gráfico" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('carpeta1', indiceCarpeta1)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">MILOA</p>
-        </div>
+        <PolaroidFrame :src="imagenCarpeta1" alt="Diseño gráfico" caption="MILOA" @click="abrirModal('carpeta1', indiceCarpeta1)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carpeta2'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenCarpeta2" alt="Diseño gráfico" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('carpeta2', indiceCarpeta2)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">SHARE IT!</p>
-        </div>
+        <PolaroidFrame :src="imagenCarpeta2" alt="Diseño gráfico" caption="SHARE IT!" @click="abrirModal('carpeta2', indiceCarpeta2)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carpeta3'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenCarpeta3" alt="Diseño gráfico" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('carpeta3', indiceCarpeta3)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">CONECTA</p>
-        </div>
+        <PolaroidFrame :src="imagenCarpeta3" alt="Diseño gráfico" caption="CONECTA" @click="abrirModal('carpeta3', indiceCarpeta3)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carteles'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenCarteles" alt="Carteles" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('carteles', indiceCarteles)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Carteles</p>
-        </div>
+        <PolaroidFrame :src="imagenCarteles" alt="Carteles" caption="Carteles" @click="abrirModal('carteles', indiceCarteles)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(1)">›</button>
       </div>
 

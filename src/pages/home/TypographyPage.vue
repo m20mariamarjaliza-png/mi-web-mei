@@ -1,5 +1,6 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import tipo1 from "@/assets/tipo1.png";
 import tipo2 from "@/assets/tipo2.png";
 import tipo3 from "@/assets/tipo3.png";
@@ -78,37 +79,13 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'tipo'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTipo(-1)">‹</button>
-
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img
-              :src="imagenTipo"
-              alt="Tipografía"
-              class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer"
-              @click="abrirModal('tipo', indiceTipo)"
-            >
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Letras</p>
-        </div>
-
+        <PolaroidFrame :src="imagenTipo" alt="Tipografía" caption="Letras" @click="abrirModal('tipo', indiceTipo)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTipo(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'revista'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRevista(-1)">‹</button>
-
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img
-              :src="imagenRevista"
-              alt="Revista"
-              class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer"
-              @click="abrirModal('revista', indiceRevista)"
-            >
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Revista</p>
-        </div>
-
+        <PolaroidFrame :src="imagenRevista" alt="Revista" caption="Revista" @click="abrirModal('revista', indiceRevista)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRevista(1)">›</button>
       </div>
 

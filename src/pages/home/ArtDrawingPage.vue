@@ -1,5 +1,6 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import dib1 from "@/assets/dib1.jpeg";
 import dib2 from "@/assets/dib2.jpeg";
 import dib3 from "@/assets/dib3.jpeg";
@@ -95,23 +96,13 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="retratoActual" alt="Retrato" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('retratos', indiceRetrato)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Retratos</p>
-        </div>
+        <PolaroidFrame :src="retratoActual" alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetrato)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'anatomico'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="anatomicoActual" alt="Dibujo anatómico" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('anatomico', indiceAnatomico)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Dibujo Anatómico</p>
-        </div>
+        <PolaroidFrame :src="anatomicoActual" alt="Dibujo anatómico" caption="Dibujo Anatómico" @click="abrirModal('anatomico', indiceAnatomico)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(1)">›</button>
       </div>
 

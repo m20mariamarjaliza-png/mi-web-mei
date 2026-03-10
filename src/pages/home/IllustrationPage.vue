@@ -1,5 +1,6 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import al1 from "@/assets/al1.png";
 import al2 from "@/assets/al2.png";
 import al3 from "@/assets/al3.png";
@@ -77,23 +78,13 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'narrativas'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarNarrativas(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenNarrativa" alt="Ilustración narrativa" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('narrativas', indiceNarrativas)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Ilustración narrativas</p>
-        </div>
+        <PolaroidFrame :src="imagenNarrativa" alt="Ilustración narrativa" caption="Ilustración narrativas" @click="abrirModal('narrativas', indiceNarrativas)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarNarrativas(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'comic'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarComic(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenComic" alt="Comic" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('comic', indiceComic)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Comic</p>
-        </div>
+        <PolaroidFrame :src="imagenComic" alt="Comic" caption="Comic" @click="abrirModal('comic', indiceComic)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarComic(1)">›</button>
       </div>
 

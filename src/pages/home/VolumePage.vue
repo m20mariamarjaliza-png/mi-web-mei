@@ -1,11 +1,10 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import vol2 from "@/assets/vol2.png";
 import vol3 from "@/assets/vol3.png";
 import vol4 from "@/assets/vol4.png";
 import vol5 from "@/assets/vol5.png";
-import lata from "@/assets/lata.jpeg";
-import lata2 from "@/assets/vol2.png"; // Asumiendo vol2.png como lata2
 
 const imagenes = [vol2, vol3, vol4, vol5];
 const indice = ref(0);
@@ -44,19 +43,7 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiar(-1)">‹</button>
-
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img
-              :src="imagenActual"
-              alt="Volumen"
-              class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer"
-              @click="abrirModal"
-            >
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Bosque</p>
-        </div>
-
+        <PolaroidFrame :src="imagenActual" alt="Volumen" caption="Bosque" @click="abrirModal" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiar(1)">›</button>
       </div>
 

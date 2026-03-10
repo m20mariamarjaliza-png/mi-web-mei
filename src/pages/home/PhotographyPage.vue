@@ -1,5 +1,6 @@
 ﻿<script setup lang="ts">
 import { computed, ref } from "vue";
+import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import foto1 from "@/assets/foto1.png";
 import foto2 from "@/assets/foto2.png";
 import foto3 from "@/assets/foto3.png";
@@ -101,34 +102,19 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenRetrato" alt="Retrato" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('retratos', indiceRetratos)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Retratos</p>
-        </div>
+        <PolaroidFrame :src="imagenRetrato" alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetratos)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'bodegones'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenBodegon" alt="Bodegón" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('bodegones', indiceBodegones)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Bodegones</p>
-        </div>
+        <PolaroidFrame :src="imagenBodegon" alt="Bodegón" caption="Bodegones" @click="abrirModal('bodegones', indiceBodegones)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'tradicional'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(-1)">‹</button>
-        <div class="bg-white p-3 pb-10 shadow-2xl">
-          <div class="overflow-hidden">
-            <img :src="imagenTradicional" alt="Tradicional" class="block w-[260px] md:w-[320px] h-auto object-contain cursor-pointer" @click="abrirModal('tradicional', indiceTradicional)">
-          </div>
-          <p class="text-black text-center mt-3 text-sm tracking-wide">Tradicional</p>
-        </div>
+        <PolaroidFrame :src="imagenTradicional" alt="Tradicional" caption="Tradicional" @click="abrirModal('tradicional', indiceTradicional)" />
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(1)">›</button>
       </div>
 
