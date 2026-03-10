@@ -4,10 +4,14 @@ import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import diseno1 from "@/assets/diseño1.png";
 import diseno2 from "@/assets/diseño2.png";
 import diseno3 from "@/assets/diseño3.png";
+import diseno4 from "@/assets/diseño4.png";
+import diseno5 from "@/assets/diseño5.png";
+import diseno6 from "@/assets/diseño6.png";
+import diseno7 from "@/assets/diseño7.png";
 import trans1 from "@/assets/trans1.png";
 import trans2 from "@/assets/trans2.png";
 import trans3 from "@/assets/trans3.png";
-import cartelCrefad from "@/assets/cartel crefad.png";
+import cartelcrefad from "@/assets/cartel crefad.png";
 import cartelDescartado1 from "@/assets/cartel descartado 1.jpg";
 import cartelDescartado2 from "@/assets/cartel descartado 2.jpg";
 import cartelSeleccionado from "@/assets/cartel seleccionado.jpg";
@@ -19,13 +23,15 @@ import sh5 from "@/assets/sh5.png";
 import sh6 from "@/assets/sh6.png";
 import ft2 from "@/assets/ft2.jpeg";
 import ft3 from "@/assets/ft3.jpeg";
+import miloa1 from "@/assets/miloa1.png";
+import miloa2 from "@/assets/miloa2.png";
 
 const pestanaActiva = ref<"carpeta1" | "carpeta2" | "carpeta3" | "carteles">("carpeta1");
 
-const carpeta1 = [diseno1, diseno2, diseno3];
+const carpeta1 = [diseno1, diseno2, diseno3, miloa1, miloa2];
 const carpeta2 = [shr1, sh2, sh3, sh4, sh5, sh6, ft2, ft3];
 const carpeta3 = [trans1, trans2, trans3];
-const carteles = [cartelCrefad, cartelDescartado1, cartelDescartado2, cartelSeleccionado];
+const carteles = [cartelcrefad, cartelDescartado1, cartelDescartado2, cartelSeleccionado];
 
 const indiceCarpeta1 = ref(0);
 const indiceCarpeta2 = ref(0);
@@ -111,6 +117,8 @@ const cambiarModal = (direccion: 1 | -1) => {
   modalIndice.value = siguiente;
   indiceCarteles.value = siguiente;
 };
+
+const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 </script>
 
 <template>
@@ -119,7 +127,7 @@ const cambiarModal = (direccion: 1 | -1) => {
       <h1 class="text-4xl md:text-6xl font-black mb-10 border-l-8 border-[#ff0080] pl-5">DISEÑO GRÁFICO</h1>
 
       <div class="mb-8 flex gap-3">
-        <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'carpeta1' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'carpeta1'">MILOA</button>
+<button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'carpeta1' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'carpeta1'">Miloa</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'carpeta2' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'carpeta2'">SHARE IT!</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'carpeta3' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'carpeta3'">CONECTA</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'carteles' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'carteles'">Carteles</button>
@@ -127,35 +135,44 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'carpeta1'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(-1)">‹</button>
-        <PolaroidFrame :src="imagenCarpeta1" alt="Diseño gráfico" caption="MILOA" @click="abrirModal('carpeta1', indiceCarpeta1)" />
+<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta1', indiceCarpeta1)">
+          <img :src="imagenCarpeta1" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta1(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carpeta2'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(-1)">‹</button>
-        <PolaroidFrame :src="imagenCarpeta2" alt="Diseño gráfico" caption="SHARE IT!" @click="abrirModal('carpeta2', indiceCarpeta2)" />
+<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta2', indiceCarpeta2)">
+          <img :src="imagenCarpeta2" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta2(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carpeta3'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(-1)">‹</button>
-        <PolaroidFrame :src="imagenCarpeta3" alt="Diseño gráfico" caption="CONECTA" @click="abrirModal('carpeta3', indiceCarpeta3)" />
+<PolaroidFrame alt="Diseño gráfico" @click="abrirModal('carpeta3', indiceCarpeta3)">
+          <img :src="imagenCarpeta3" alt="Diseño gráfico" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarpeta3(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'carteles'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(-1)">‹</button>
-        <PolaroidFrame :src="imagenCarteles" alt="Carteles" caption="Carteles" @click="abrirModal('carteles', indiceCarteles)" />
+<PolaroidFrame alt="Carteles" @click="abrirModal('carteles', indiceCarteles)">
+          <img :src="imagenCarteles" alt="Carteles" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarCarteles(1)">›</button>
       </div>
 
       <router-link to="/projects" class="mt-12 inline-block text-gray-300 underline hover:text-white transition-colors">← Volver a trabajos</router-link>
 
-      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
+<div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
         <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
-        <img :src="imagenModal ?? ''" alt="Diseño ampliado" class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl" @click.stop>
+        <img :src="imagenModal ?? ''" alt="Diseño ampliado" :class="esShareIt ? 'h-[70vh] w-auto object-contain' : 'max-w-full max-h-[82vh] object-contain'" class="rounded-lg shadow-2xl" @click.stop>
         <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
       </div>
     </div>
   </div>
 </template>
+

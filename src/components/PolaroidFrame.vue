@@ -1,6 +1,5 @@
 <script setup lang="ts">
 defineProps<{
-  src?: string;
   alt: string;
   caption?: string;
 }>();
@@ -12,16 +11,9 @@ defineEmits<{
 
 <template>
   <div class="bg-white p-3 pb-10 shadow-2xl polaroid-frame">
-    <div class="overflow-hidden polaroid-image-container">
-      <img
-        v-if="src"
-        :src="src"
-        :alt="alt"
-        class="block w-full h-full object-cover cursor-pointer"
-        @click="$emit('click')"
-      >
+    <div class="overflow-hidden polaroid-image-container" @click="$emit('click')">
+      <slot></slot>
     </div>
-    <p v-if="caption" class="text-black text-center mt-3 text-sm tracking-wide">{{ caption }}</p>
   </div>
 </template>
 
@@ -39,6 +31,13 @@ defineEmits<{
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.polaroid-image-container :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
 

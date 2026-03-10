@@ -78,13 +78,17 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'narrativas'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarNarrativas(-1)">‹</button>
-        <PolaroidFrame :src="imagenNarrativa" alt="Ilustración narrativa" caption="Ilustración narrativas" @click="abrirModal('narrativas', indiceNarrativas)" />
+        <PolaroidFrame alt="Ilustración narrativa" caption="Ilustración narrativas" @click="abrirModal('narrativas', indiceNarrativas)">
+          <img :src="imagenNarrativa" alt="Ilustración narrativa" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarNarrativas(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'comic'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarComic(-1)">‹</button>
-        <PolaroidFrame :src="imagenComic" alt="Comic" caption="Comic" @click="abrirModal('comic', indiceComic)" />
+        <PolaroidFrame alt="Comic" caption="Comic" @click="abrirModal('comic', indiceComic)">
+          <img :src="imagenComic" alt="Comic" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarComic(1)">›</button>
       </div>
 
@@ -98,3 +102,4 @@ const cambiarModal = (direccion: 1 | -1) => {
     </div>
   </div>
 </template>
+

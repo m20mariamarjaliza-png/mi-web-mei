@@ -14,7 +14,7 @@ const projectLink = (id: string) => {
 
 <template>
   <div class="min-h-screen bg-[#111] text-white px-4 sm:px-6 md:px-12 lg:px-20 py-10">
-    <h1 class="text-4xl md:text-6xl font-bold mb-10 md:mb-16">MIS TRABAJOS</h1>
+<h1 class="text-4xl md:text-6xl font-bold mb-10 md:mb-16 border-l-8 border-[#ff0080] pl-5">MIS TRABAJOS</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
       <div

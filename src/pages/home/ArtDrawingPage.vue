@@ -96,13 +96,17 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(-1)">‹</button>
-        <PolaroidFrame :src="retratoActual" alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetrato)" />
+        <PolaroidFrame alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetrato)">
+          <img :src="retratoActual" alt="Retrato" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetrato(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'anatomico'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(-1)">‹</button>
-        <PolaroidFrame :src="anatomicoActual" alt="Dibujo anatómico" caption="Dibujo Anatómico" @click="abrirModal('anatomico', indiceAnatomico)" />
+        <PolaroidFrame alt="Dibujo anatómico" caption="Dibujo Anatómico" @click="abrirModal('anatomico', indiceAnatomico)">
+          <img :src="anatomicoActual" alt="Dibujo anatómico" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarAnatomico(1)">›</button>
       </div>
 
@@ -116,3 +120,4 @@ const cambiarModal = (direccion: 1 | -1) => {
     </div>
   </div>
 </template>
+

@@ -15,7 +15,7 @@ import foto11 from "@/assets/foto11.jpeg";
 
 const pestanaActiva = ref<"retratos" | "bodegones" | "tradicional">("retratos");
 
-const retratos = [foto1, foto2, foto3];
+const retratos = [foto2, foto3, foto1];
 const bodegones = [foto4, foto5, foto6, foto11];
 const tradicional = [foto7, foto8, foto9, foto10];
 
@@ -102,19 +102,25 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'retratos'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(-1)">‹</button>
-        <PolaroidFrame :src="imagenRetrato" alt="Retrato" caption="Retratos" @click="abrirModal('retratos', indiceRetratos)" />
+<PolaroidFrame alt="Retrato" @click="abrirModal('retratos', indiceRetratos)">
+          <img :src="imagenRetrato" alt="Retrato" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRetratos(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'bodegones'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(-1)">‹</button>
-        <PolaroidFrame :src="imagenBodegon" alt="Bodegón" caption="Bodegones" @click="abrirModal('bodegones', indiceBodegones)" />
+<PolaroidFrame alt="Bodegón" @click="abrirModal('bodegones', indiceBodegones)">
+          <img :src="imagenBodegon" alt="Bodegón" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarBodegones(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'tradicional'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(-1)">‹</button>
-        <PolaroidFrame :src="imagenTradicional" alt="Tradicional" caption="Tradicional" @click="abrirModal('tradicional', indiceTradicional)" />
+<PolaroidFrame alt="Tradicional" @click="abrirModal('tradicional', indiceTradicional)">
+          <img :src="imagenTradicional" alt="Tradicional" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTradicional(1)">›</button>
       </div>
 

@@ -79,13 +79,17 @@ const cambiarModal = (direccion: 1 | -1) => {
 
       <div v-if="pestanaActiva === 'tipo'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTipo(-1)">‹</button>
-        <PolaroidFrame :src="imagenTipo" alt="Tipografía" caption="Letras" @click="abrirModal('tipo', indiceTipo)" />
+        <PolaroidFrame alt="Tipografía" caption="Letras" @click="abrirModal('tipo', indiceTipo)">
+          <img :src="imagenTipo" alt="Tipografía" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarTipo(1)">›</button>
       </div>
 
       <div v-else-if="pestanaActiva === 'revista'" class="flex justify-center items-center gap-4 md:gap-8 py-6">
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRevista(-1)">‹</button>
-        <PolaroidFrame :src="imagenRevista" alt="Revista" caption="Revista" @click="abrirModal('revista', indiceRevista)" />
+        <PolaroidFrame alt="Revista" caption="Revista" @click="abrirModal('revista', indiceRevista)">
+          <img :src="imagenRevista" alt="Revista" class="max-w-full max-h-full object-contain">
+        </PolaroidFrame>
         <button class="text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click="cambiarRevista(1)">›</button>
       </div>
 
@@ -93,11 +97,7 @@ const cambiarModal = (direccion: 1 | -1) => {
         ← Volver a trabajos
       </router-link>
 
-      <div
-        v-if="modalGrupo"
-        class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer"
-        @click="cerrarModal"
-      >
+      <div v-if="modalGrupo" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 cursor-pointer" @click="cerrarModal">
         <button class="absolute left-4 md:left-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(-1)">‹</button>
         <img :src="imagenModal ?? ''" alt="Tipografía ampliada" class="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl" @click.stop>
         <button class="absolute right-4 md:right-8 text-white/90 text-4xl font-light px-3 py-1 hover:text-white" @click.stop="cambiarModal(1)">›</button>
@@ -105,3 +105,4 @@ const cambiarModal = (direccion: 1 | -1) => {
     </div>
   </div>
 </template>
+
