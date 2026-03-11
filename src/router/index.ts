@@ -7,6 +7,7 @@ import PhotographyPage from '../pages/home/PhotographyPage.vue'
 import TypographyPage from '../pages/home/TypographyPage.vue'
 import GraphicDesignPage from '../pages/home/GraphicDesignPage.vue'
 import VolumePage from '../pages/home/VolumePage.vue'
+import AudiovisualesPage from '../pages/home/AudiovisualesPage.vue'
 import IllustrationPage from '../pages/home/IllustrationPage.vue'
 import AboutPage from '../pages/home/AboutPage.vue'
 import ContactPage from '../pages/home/ContactPage.vue'
@@ -22,6 +23,7 @@ const router = createRouter({
     { path: '/typography', component: TypographyPage },
     { path: '/graphic-design', component: GraphicDesignPage },
     { path: '/volume', component: VolumePage },
+    { path: '/audiovisuales', component: AudiovisualesPage },
     { path: '/illustration', component: IllustrationPage },
     { path: '/about', component: AboutPage },
     { path: '/contact', component: ContactPage }

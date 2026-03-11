@@ -8,6 +8,7 @@ const projectLink = (id: string) => {
   if (id === "5") return "/typography";
   if (id === "6") return "/photography";
   if (id === "7") return "/illustration";
+  if (id === "8") return "/audiovisuales";
   return `/project/${id}`;
 };
 </script>

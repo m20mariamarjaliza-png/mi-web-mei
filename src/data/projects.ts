@@ -6,5 +6,6 @@ export const projects = [
   { id: '7', title: 'Ilustración' },
   { id: '4', title: 'Técnicas de Pintura' },
   { id: '1', title: 'Dibujo Artístico' },
-  { id: '3', title: 'Volumen' }
+  { id: '3', title: 'Volumen' },
+  { id: '8', title: 'Audiovisuales' }
 ];
