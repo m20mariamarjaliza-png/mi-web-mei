@@ -16,8 +16,13 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: HomePage },
-    { path: '/projects', component: ProjectsPage },
-    { path: '/project/:id', component: ProjectDetailPage },
+    { 
+      path: '/projects', 
+      component: ProjectsPage,
+      children: [
+        { path: ':id', component: ProjectDetailPage }
+      ]
+    },
     { path: '/art-drawing', component: ArtDrawingPage },
     { path: '/photography', component: PhotographyPage },
     { path: '/typography', component: TypographyPage },

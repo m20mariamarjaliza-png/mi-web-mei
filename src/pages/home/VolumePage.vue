@@ -22,13 +22,13 @@ const descripcionTresD =
 const bosque = [vol2, vol3, vol4, vol5];
 const barro = [lata, lata2];
 const tresD = (() => {
-  // Auto-include `figuritas` + `figuritas 2` (or similar) when present in `src/assets`.
+  // Cargar figuritas automáticamente desde la carpeta assets
   const modulesFiguritas = import.meta.glob("../../assets/figuritas*.{png,jpg,jpeg}", {
     eager: true,
     import: "default",
   }) as Record<string, string>;
 
-  // Some assets are named with a typo: `fihuritas 2.png`.
+  // Cargar también las que tienen error de escritura en el nombre
   const modulesFihuritas = import.meta.glob("../../assets/fihuritas*.{png,jpg,jpeg}", {
     eager: true,
     import: "default",

@@ -3,9 +3,9 @@ import { computed, ref } from "vue";
 
 const props = defineProps<{
   alt: string;
-  // `caption` is kept for backwards compatibility with existing pages.
+  // caption se mantiene por compatibilidad con páginas anteriores
   caption?: string;
-  // Preferred prop name going forward.
+  // label es el nombre preferido para nuevas páginas
   label?: string;
   description?: string;
 }>();

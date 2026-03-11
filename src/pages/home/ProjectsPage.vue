@@ -1,5 +1,8 @@
 ﻿<script setup lang="ts">
 import { projects } from "@/data/projects";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const projectLink = (id: string) => {
   if (id === "1") return "/art-drawing";
@@ -9,7 +12,11 @@ const projectLink = (id: string) => {
   if (id === "6") return "/photography";
   if (id === "7") return "/illustration";
   if (id === "8") return "/audiovisuales";
-  return `/project/${id}`;
+  return `/projects/${id}`;
+};
+
+const navegar = (id: string) => {
+  router.push(projectLink(id));
 };
 </script>
 
@@ -29,6 +36,8 @@ const projectLink = (id: string) => {
         <h2 class="text-xl md:text-2xl font-bold">{{ project.title }}</h2>
       </div>
     </div>
+
+    <router-view />
 
     <router-link to="/" class="mt-12 md:mt-16 block text-gray-400 underline hover:text-white">
       ← Volver al inicio

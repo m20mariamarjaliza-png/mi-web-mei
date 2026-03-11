@@ -11,7 +11,7 @@ const copyToClipboard = async (text: string, key: "email" | "phone") => {
       if (copied.value === key) copied.value = null;
     }, 1200);
   } catch {
-    // If clipboard permissions are blocked, keep it non-navigational and do nothing.
+    // Si el portapapeles no funciona, no hacemos nada
   }
 };
 </script>
