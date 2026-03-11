@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed, ref } from "vue";
 import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import al1 from "@/assets/al1.png";
@@ -11,13 +11,13 @@ import revista from "@/assets/revista.png";
 const pestanaActiva = ref<"narrativas" | "comic" | "editorial">("narrativas");
 
 const descripcionNarrativa =
-  "Reinterpretación visual del clásico literario de Lewis Carroll. El proyecto consistió en el diseño de las guardas, concebidas como un patrón simbólico que anticipa la atmósfera onírica y surrealista del relato, y la creación de dos ilustraciones de página completa. El trabajo explora la dualidad entre lo cotidiano y lo fantástico, utilizando una técnica de ilustración que busca capturar la esencia del 'mundo al revés' a través de una composición dinámica y detallista";
+  "Reinterpretación visual del clásico literario de Lewis Carroll. El proyecto consistió en el diseño de las guardas, concebidas como un patrón simbólico que anticipa la atmósfera onírica y surrealista del relato, y la creación de dos ilustraciones de página completa.";
 
 const descripcionComic =
-  "Desarrollo integral de una historia corta en formato cómic, abarcando desde el guion y el storyboard hasta el acabado final. El proyecto se centró en la creación de una narrativa visual sólida, gestionando el ritmo de la lectura mediante la composición de viñetas y el uso expresivo del color y la tipografía para guiar al lector a través de la historia. Un ejercicio de síntesis donde la ilustración se pone al servicio de la trama.";
+  "Desarrollo integral de una historia corta en formato cómic, abarcando desde el guion y el storyboard hasta el acabado final.";
 
 const descripcionEditorial =
-  "Proyecto de dirección de arte y diseño editorial centrado en la síntesis conceptual de textos complejos. Partiendo de la lectura y análisis de un artículo, desarrollé una ilustración original que no solo acompaña, sino que comunica y expande el mensaje central. El trabajo culmina en la maquetación integral del artículo, donde la tipografía, el espacio y la imagen se integran para crear una lectura visualmente estimulante y coherente";
+  "Proyecto de dirección de arte y diseño editorial centrado en la síntesis conceptual de textos complejos.";
 
 const narrativas = [al1, al2, al3, al4];
 const comicCarpeta = [comic];
@@ -99,7 +99,7 @@ const cambiarModal = (direccion: 1 | -1) => {
       <h1 class="text-4xl md:text-6xl font-black mb-10 border-l-8 border-[#ff0080] pl-5">ILUSTRACIÓN</h1>
 
       <div class="mb-8 flex gap-3 flex-wrap">
-        <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'narrativas' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'narrativas'">Ilustración narrativa</button>
+<button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'narrativas' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'narrativas'">Ilustración narrativa</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'comic' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'comic'">Comic</button>
         <button class="px-4 py-2 border transition-colors" :class="pestanaActiva === 'editorial' ? 'bg-[#ff0080] border-[#ff0080]' : 'border-white/40 hover:border-white'" @click="pestanaActiva = 'editorial'">Ilustración editorial</button>
       </div>

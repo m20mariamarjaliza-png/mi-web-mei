@@ -4,10 +4,6 @@ import PolaroidFrame from "@/components/PolaroidFrame.vue";
 import diseno1 from "@/assets/diseño1.png";
 import diseno2 from "@/assets/diseño2.png";
 import diseno3 from "@/assets/diseño3.png";
-import diseno4 from "@/assets/diseño4.png";
-import diseno5 from "@/assets/diseño5.png";
-import diseno6 from "@/assets/diseño6.png";
-import diseno7 from "@/assets/diseño7.png";
 import trans1 from "@/assets/trans1.png";
 import trans2 from "@/assets/trans2.png";
 import trans3 from "@/assets/trans3.png";
@@ -124,8 +120,6 @@ const cambiarModal = (direccion: 1 | -1) => {
   modalIndice.value = siguiente;
   indiceCarteles.value = siguiente;
 };
-
-const esShareIt = computed(() => modalGrupo.value === "carpeta2");
 </script>
 
 <template>

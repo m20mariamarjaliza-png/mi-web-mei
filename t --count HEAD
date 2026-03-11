@@ -1,0 +1,77 @@
+[33mcommit 76eae285f55a9b38dd37a2719c2ebd7ebc3604bc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Wed Mar 11 00:59:31 2026 +0100
+
+    Acabado
+
+[33mcommit 4e3cf109abc95876fc1c03a3f993e0e1efba2c82[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Wed Mar 11 00:20:09 2026 +0100
+
+    Casi acabado
+
+[33mcommit ab0ba02b2449ec650e5205f635174de0160a0a57[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 22:33:51 2026 +0100
+
+    Estructura base completada
+
+[33mcommit 25e6a2cb1cc70ab875e8718f78a2c3d89be4c450[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 21:05:16 2026 +0100
+
+    Tamaños de imagenes
+
+[33mcommit 3a04160b4e2a5ee40061759a5a58e530b991c242[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 17:03:41 2026 +0100
+
+    Guardado de seguridad antes de cambios de diseño
+
+[33mcommit 76e77fb4f9bacd5061552922d8cb4f81af5e4e65[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 02:30:42 2026 +0100
+
+    Añadida seccion de habilidades tecnicas con etiquetas de diseño
+
+[33mcommit ebed2cc43d0f6808fca89f0d0c27b68b88e33ab0[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 02:00:16 2026 +0100
+
+    Añadida seccion de proyectos destacados con grid interactivo
+
+[33mcommit 85b1ae09da99e216c84ac824eac68bacd878ce3f[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Tue Mar 10 00:31:32 2026 +0100
+
+    Implementado carrusel de imágenes para formación UPV
+
+[33mcommit 3032a237619f4210857cf74bad4a38fda3aff2ed[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Mon Mar 9 20:17:53 2026 +0100
+
+    Añadida seccion About con carrusel de fotos y ajustes de perfil
+
+[33mcommit 6c78e1a61458884828b008cf7e8170457351c847[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Mon Mar 9 16:17:35 2026 +0100
+
+    Actualizado ContactPage a rosa corporativo y optimizada AboutPage
+
+[33mcommit cd2c06968a00176abfec7cabac11b8e1a43f6adb[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Mon Mar 9 12:46:27 2026 +0100
+
+    Estructura base de AboutPage con modal de fotos
+
+[33mcommit 3017d1c024e61e2771ef577d4cfa3c67fb074a82[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Mon Mar 9 12:27:34 2026 +0100
+
+    Solucionada la navegación y completado el grid de proyectos
+
+[33mcommit 56672042d2bb062bad82fe6cbcf06b78c8d07fe4[m
+Author: Maria <m20mariamarjaliza@gmail.com>
+Date:   Sat Mar 7 19:49:47 2026 +0100
+
+    Mi primer commit oficial

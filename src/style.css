@@ -1,1 +1,5 @@
+@config "../tailwind.config.js";
+/* Restore v3-style hover behavior (enable hover styles even when `hover: hover` media query is false). */
+@custom-variant hover (&:hover);
+@custom-variant group-hover (.group:hover &);
 @import "tailwindcss";

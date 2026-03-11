@@ -1,5 +1,6 @@
 ﻿<script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { Instagram } from 'lucide-vue-next';
 import arte1 from '@/assets/artes1.png';
 import arte2 from '@/assets/artes2.png';
 import arte4 from '@/assets/artes4.png';
@@ -184,7 +185,6 @@ onBeforeUnmount(() => {
         <div
           class="w-full h-44 md:h-48 mb-4 rounded overflow-hidden border border-gray-200 relative group cursor-pointer transition-all duration-300"
           @click="abrirImagenUpv(indiceUpv)"
-
         >
           <img
             :src="imagenActualUpv"
@@ -222,6 +222,18 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
+    <div class="mt-10">
+      <a
+        href="https://instagram.com/mmaria0620"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-white/30 hover:border-[#ff0080] hover:text-[#ff0080] transition-colors"
+      >
+        <Instagram :size="20" />
+        <span>@mmaria0620</span>
+      </a>
+    </div>
+
     <div
       v-if="imagenAbierta"
       class="fixed inset-0 bg-black/90 z-50 p-4 overflow-y-auto cursor-pointer"
@@ -252,3 +264,4 @@ onBeforeUnmount(() => {
     </router-link>
   </div>
 </template>
+
